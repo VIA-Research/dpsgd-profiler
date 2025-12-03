@@ -14,13 +14,13 @@ export PATH_MODEL_WEIGHT={absolute_path_to_model_weight_directory}
 
 Then, create docker container from official docker image.
 ```bash
-docker run -ti --gpus all --shm-size 5g --name lazydp -v $PATH_MODEL_WEIGHT:/model_weight -e "PATH_MAIN=/workspace/dpsgd_profiler" -e "PATH_MODEL_WEIGHT=/model_weight" --cap-add SYS_NICE nvcr.io/nvidia/pytorch:23.09-py3
+docker run -ti --gpus all --shm-size 5g --name lazydp -v $PATH_MODEL_WEIGHT:/model_weight -e "PATH_MAIN=/workspace/dpsgd-profiler" -e "PATH_MODEL_WEIGHT=/model_weight" --cap-add SYS_NICE nvcr.io/nvidia/pytorch:23.09-py3
 ```
 
 In the docker container, clone this repository.
 ```bash
 cd /workspace
-git clone https://github.com/VIA-Research/dpsgd_profiler.git
+git clone https://github.com/VIA-Research/dpsgd-profiler.git
 ```
 
 Run `setup.sh` in the cloned directory to extend PyTorch and install required packages. This extension accelerates several operations such as noise generation and sparse parameter updates on CPU device.
